@@ -1,0 +1,77 @@
+<div class="container-fluid pt-4">
+
+    <div class="row">
+        <div class="col col-xs-4">
+            <strong>Página {{ pagination.page }} de {{ pagination.pageCount }} </strong>
+        </div>
+        <div class="col col-xs-8">
+            <nav aria-label="navigation" class="float-right" role="pagination">
+                {{{paginate pagination }}}
+            </nav>
+        </div>
+    </div>
+
+    <table class="table table-hover table-bordered table-sm">
+        <thead class="thead-dark">
+            <tr class="text-center">
+                <th scope="col" colspan="6"></th>
+                <th colspan="2" scope="col">ACUERDO DE CONFIDENCIALIDAD</th>
+                <th colspan="2" scope="col">AUTORIZADOS POR COVID</th>
+                <th scope="col" colspan="3"></th>
+            </tr>
+            <tr class="text-center">
+                <th scope="col">ID </th>
+                <th scope="col">NOMBRES</th>
+                <th scope="col">APELLIDOS </th>
+                <th scope="col">DNI</th>
+                <th scope="col">CLIENTE</th>
+                <th scope="col">CONTRATA</th>
+                <th scope="col">FIRMA INICIO</th>
+                <th scope="col">FIRMA FIN</th>
+                <th scope="col">APTO INICIO</th>
+                <th scope="col">APTO FIN</th>
+                <th scope="col">ESTADO</th>
+                <th scope="col">DOCUMENTO</th>
+                <th scope="col">ACCION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each autorizaciones}}
+            <tr>
+                <th scope="row">{{idAutorizacion}}</th>
+                <td>{{nombres}}</td>
+                <td>{{apellidos}}</td>
+                <td>{{nroDocumento}}</td>
+                <td>{{cliente}}</td>
+                <td>{{contrata}}</td>
+                <td>{{firmaFechaInicio}}</td>
+                <td>{{firmaFechaFin}}</td>
+                <td>{{aptoFechaInicio}}</td>
+                <td>{{aptoFechaFin}}</td>
+                <td>{{estado}}</td>
+                <td>
+                    {{#each documentos}}
+                    <a href="document/{{nombre}}" target="_blank">{{nombre}}<br>
+                        {{/each}}
+                </td>
+                <td class="text-center">
+                    <a href="/autorizaciones/edit/{{idAutorizacion}}">
+                        <i class="fas fa-marker" title="Modificar"></i>
+                    </a>
+                    <a href="/autorizaciones/delete/{{../idAutorizacion}}">
+                        <i class="far fa-trash-alt" title="Eliminar"></i>
+                    </a>
+                    <a href="/autorizaciones/document/{{idAutorizacion}}">
+                        <i class="fa fa-plus" title="Agregar Documento"></i>
+                    </a>
+                </td>
+            </tr>
+            {{else}}
+            <tr class="text-center">
+                <td colspan="14">No existen registros</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

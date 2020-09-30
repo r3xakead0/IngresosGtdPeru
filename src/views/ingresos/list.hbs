@@ -1,0 +1,71 @@
+<div class="container-fluid pt-4">
+
+    <div class="row">
+        <div class="col col-xs-4">
+            <strong>Página {{ pagination.page }} de {{ pagination.pageCount }} </strong>
+        </div>
+        <div class="col col-xs-8">
+            <nav aria-label="navigation" class="float-right" role="pagination">
+                {{{paginate pagination }}}
+            </nav>
+        </div>
+    </div>
+
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">ID </th>
+                <th scope="col">CLIENTE</th>
+                <th scope="col">CONTRATA</th>
+                <th scope="col">NOMBRES</th>
+                <th scope="col">APELLIDOS </th>
+                <th scope="col">DNI</th>
+                <th scope="col">FECHA Y HORA INGRESO</th>
+                <th scope="col">FECHA Y HORA SALIDA</th>
+                <th scope="col">ACTIVIDAD</th>
+                <th scope="col">OBSERVACION</th>
+                <th scope="col">DOCUMENTO</th>
+                <th scope="col">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tickets}}
+            <tr>
+                <th scope="row">{{idIngreso}}</th>
+                <td>{{cliente}}</td>
+                <td>{{contrata}}</td>
+                <td>{{nombre}}</td>
+                <td>{{apellidos}}</td>
+                <td>{{nroDocumento}}</td>
+                <td>{{fechaHoraIngreso}}</td>
+                <td>{{fechaHoraSalida}}</td>
+                <td>{{actividad}}</td>
+                <td>{{observacion}}</td>
+                <td>
+                    {{#each documentos}}
+                    <a href="document/{{nombre}}" target="_blank">{{nombre}}<br>
+                        {{/each}}
+                </td>
+                <td class="text-center">
+                    <a href="/ingresos/edit/{{nroTicket}}">
+                        <i class="fas fa-marker" title="Modificar"></i>
+                    </a><br>
+                    {{#isEqual ../user.administrador 1}} 
+                    <a href="/ingresos/delete/{{../nroTicket}}">
+                        <i class="far fa-trash-alt" title="Eliminar"></i>
+                    </a><br>
+                    {{/isEqual}}
+                    <a href="/ingresos/document/{{nroTicket}}">
+                        <i class="fa fa-plus" title="Agregar Documento"></i>
+                    </a>
+                </td>
+            </tr>
+            {{else}}
+            <tr class="text-center">
+                <td colspan="14">No existen registros</td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>

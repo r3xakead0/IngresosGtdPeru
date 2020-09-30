@@ -1,0 +1,74 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form action="/autorizaciones/add" method="POST" enctype="multipart/form-data">
+                <div class="form-group row">
+                    <label for="nroDocumento" class="col-sm-2 col-form-label">Nro. Documento</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="nroDocumento" name="nroDocumento" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nombres" class="col-sm-2 col-form-label">Nombres</label>
+                    <div class="col-sm-4">
+                        <input id="nombres" name="nombres" class="form-control">
+                    </div>
+                    <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
+                    <div class="col-sm-4">
+                        <input id="apellidos" name="apellidos" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="cliente" name="cliente">
+                            {{#each clientes}}
+                            <option value="{{idCliente}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <label for="contrata" class="col-sm-2 col-form-label">Contrata</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="contrata" name="contrata">
+                            {{#each contratas}}
+                            <option value="{{idContrata}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="firmaFechaInicio" class="col-sm-2 col-form-label">Firma Inicio</label>
+                    <div class="col-sm-4">
+                        <input type="date" id="firmaFechaInicio" name="firmaFechaInicio" class="form-control">
+                    </div>
+                    <label for="firmaFechaFin" class="col-sm-2 col-form-label">Firma Fin</label>
+                    <div class="col-sm-4">
+                        <input type="date" id="firmaFechaFin" name="firmaFechaFin" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="aptoFechaInicio" class="col-sm-2 col-form-label">Apto Inicio</label>
+                    <div class="col-sm-4">
+                        <input type="date" id="aptoFechaInicio" name="aptoFechaInicio" class="form-control">
+                    </div>
+                    <label for="aptoFechaFin" class="col-sm-2 col-form-label">Apto Fin</label>
+                    <div class="col-sm-4">
+                        <input type="date" id="aptoFechaFin" name="aptoFechaFin" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="documento" class="col-sm-2 col-form-label">Documento</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="documento" class="form-control-file" accept=".pdf">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

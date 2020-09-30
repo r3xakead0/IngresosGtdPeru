@@ -1,0 +1,26 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form action="/autorizaciones/document" method="POST" enctype="multipart/form-data">
+                <div class="form-group row">
+                    <label for="idAutorizacion" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                        <input type="number" readonly id="idAutorizacion" name="idAutorizacion" class="form-control" value="{{idAutorizacion}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="documento" class="col-sm-2 col-form-label">Documento</label>
+                    <div class="col-sm-10">
+                        <input type="file" name="documento" class="form-control-file" accept=".pdf" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">
+                        Agregar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

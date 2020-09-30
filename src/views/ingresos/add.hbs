@@ -1,0 +1,76 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form action="/ingresos/add" method="POST" enctype="multipart/form-data">
+                <div class="form-group row">
+                    <label for="nroDocumento" class="col-sm-2 col-form-label">Nro. Documento</label>
+                    <div class="col-sm-4">
+                        <input type="text" id="nroDocumento" name="nroDocumento" class="form-control">
+                    </div>
+                    <label for="estado" class="col-sm-2 col-form-label">Estado</label>
+                    <div class="col-sm-4">
+                        <input id="estado" name="estado" class="form-control" value="" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nombres" class="col-sm-2 col-form-label">Nombres</label>
+                    <div class="col-sm-4">
+                        <input id="nombres" name="nombres" class="form-control" readonly>
+                    </div>
+                    <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
+                    <div class="col-sm-4">
+                        <input id="apellidos" name="apellidos" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cliente" class="col-sm-2 col-form-label">Cliente</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="cliente" name="cliente">
+                            {{#each clientes}}
+                            <option value="{{idCliente}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <label for="contrata" class="col-sm-2 col-form-label">Contrata</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="contrata" name="contrata">
+                            {{#each contratas}}
+                            <option value="{{idContrata}}">{{nombre}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fechaHoraIngreso" class="col-sm-2 col-form-label">Fecha y Hora Ingreso</label>
+                    <div class="col-sm-4">
+                        <input type="datetime-local" id="fechaHoraIngreso" name="fechaHoraIngreso" class="form-control">
+                    </div>
+                    <label for="fechaHoraSalida" class="col-sm-2 col-form-label">Fecha y Hora Salida</label>
+                    <div class="col-sm-4">
+                        <input type="datetime-local" id="fechaHoraSalida" name="fechaHoraSalida" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="actividad" class="col-sm-2 col-form-label">Actividad</label>
+                    <div class="col-sm-10">
+                        <textarea id="actividad" name="actividad" class="form-control" rows="3">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="observacion" class="col-sm-2 col-form-label">Observacion</label>
+                    <div class="col-sm-10">
+                        <textarea id="observacion" name="observacion" class="form-control" rows="3">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
